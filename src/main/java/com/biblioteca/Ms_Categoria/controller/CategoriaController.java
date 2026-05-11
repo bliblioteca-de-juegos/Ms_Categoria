@@ -23,8 +23,7 @@ public class CategoriaController {
     }
 
     // GET http://localhost:8081/api/categorias/{id} → 200 OK o 404
-    // ms-libros llama a este endpoint con RestTemplate para validar
-    // que una categoría existe antes de guardar un libro.
+    // ms-Juegos valida por HTTP que una categoria exista antes de guardar un juego.
     @GetMapping("/{id}")
     public ResponseEntity<Categoria> obtenerPorId(@PathVariable Long id) {
         return categoriaService.obtenerPorId(id)

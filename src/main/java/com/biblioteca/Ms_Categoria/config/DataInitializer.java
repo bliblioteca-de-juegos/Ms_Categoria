@@ -17,6 +17,7 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args){
         if (categoriaRepository.count() > 0){
             log.info(">>> Ms_categoria: BD ya tiene datos, se omite la carga inicial");
+            return;
         }
         categoriaRepository.save(new Categoria(null, "nose",  "lamer"));
         categoriaRepository.save(new Categoria(null, "logros","logro oculto"));
