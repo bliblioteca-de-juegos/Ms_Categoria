@@ -19,8 +19,9 @@ public class DataInitializer implements CommandLineRunner {
             log.info(">>> Ms_categoria: BD ya tiene datos, se omite la carga inicial");
             return;
         }
-        categoriaRepository.save(new Categoria(null, "nose",  "lamer"));
-        categoriaRepository.save(new Categoria(null, "logros","logro oculto"));
+        categoriaRepository.save(new Categoria(null, "AAA",  "Juego de alto presupuesto"));
+        categoriaRepository.save(new Categoria(null, "AA","juego de bajo presupuesto"));
+        categoriaRepository.save(new Categoria(null, "indi","juego desarrollado por una empresa pequeña"));
         log.info(">>> Ms_categorias: {} categorías insertadas.", categoriaRepository.count());
     }
 
