@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/categorias")
+@RequestMapping("/api/v2/categorias")
 @RequiredArgsConstructor
 public class CategoriaController {
 
     private final CategoriaService categoriaService;
 
-    // GET http://localhost:8081/api/categorias → 200 OK
+    // GET http://localhost:8081/api/v2/categorias -> 200 OK
     @GetMapping
     public ResponseEntity<List<Categoria>> obtenerTodas() {
         return ResponseEntity.ok(categoriaService.ObternerTodas());
     }
 
-    // GET http://localhost:8081/api/categorias/{id} → 200 OK o 404
+    // GET http://localhost:8081/api/v2/categorias/{id} -> 200 OK o 404
     // ms-Juegos valida por HTTP que una categoria exista antes de guardar un juego.
     @GetMapping("/{id}")
     public ResponseEntity<Categoria> obtenerPorId(@PathVariable Long id) {
@@ -31,13 +31,13 @@ public class CategoriaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // POST http://localhost:8081/api/categorias → 201 Created
+    // POST http://localhost:8081/api/v2/categorias -> 201 Created
     @PostMapping
     public ResponseEntity<Categoria> crear(@Valid @RequestBody Categoria categoria) {
         return ResponseEntity.status(201).body(categoriaService.guardar(categoria));
     }
 
-    // PUT http://localhost:8081/api/categorias/{id} → 200 OK o 404
+    // PUT http://localhost:8081/api/v2/categorias/{id} -> 200 OK o 404
     @PutMapping("/{id}")
     public ResponseEntity<Categoria> actualizar(
             @PathVariable Long id,
@@ -50,7 +50,7 @@ public class CategoriaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETE http://localhost:8081/api/categorias/{id} → 204 No Content o 404
+    // DELETE http://localhost:8081/api/v2/categorias/{id} -> 204 No Content o 404
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
         if (categoriaService.obtenerPorId(id).isEmpty()) {
