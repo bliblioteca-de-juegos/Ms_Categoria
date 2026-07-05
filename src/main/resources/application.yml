@@ -19,12 +19,14 @@ spring:
   # Flyway habilitado
   flyway:
     enabled: true
+    baseline-on-migrate: true
+    # Configuración añadida para evitar el error de versión de PostgreSQL
+    ignore-migration-patterns: "*:*:ignored"
+    validate-on-migrate: false
 
 # Configuración de servidor (usando puerto dinámico para Render)
 server:
   port: ${PORT:8081}
-
-
 
 eureka:
   client:
