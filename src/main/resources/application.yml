@@ -18,8 +18,9 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
-    configuration:
-      ignore-unsupported-database: true
+    # Esto es lo que Spring Boot usa internamente para validar
+    check-location: false
+    ignore-missing-migrations: true
 
 server:
   port: ${PORT:8081}
