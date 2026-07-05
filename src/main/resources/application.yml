@@ -17,6 +17,9 @@ spring:
 flyway:
   enabled: true
   locations: classpath:db/migration
+  # Añade estas líneas debajo:
+  configuration:
+    ignore-unsupported-database: true
 
 server:
   port: ${PORT:8081}
