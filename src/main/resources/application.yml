@@ -16,7 +16,7 @@ spring:
         format_sql: true
   # Mueve flyway aquí dentro:
 flyway:
-  enabled: true
+  enabled: false
   locations: classpath:db/migration
   check-location: false
   ignore-missing-migrations: true
