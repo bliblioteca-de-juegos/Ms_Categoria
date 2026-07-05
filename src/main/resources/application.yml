@@ -17,6 +17,15 @@ spring:
     enabled: true
     baseline-on-migrate: true
 
+  spring:
+    datasource:
+      url: ${DATABASE_URL}
+      driver-class-name: org.postgresql.Driver
+    jpa:
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        ddl-auto: update
+
 eureka:
   client:
     serviceUrl:
