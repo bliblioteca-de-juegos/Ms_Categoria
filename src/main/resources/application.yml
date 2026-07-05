@@ -19,7 +19,6 @@ spring:
   # Flyway habilitado
   flyway:
     enabled: true
-    baseline-on-migrate: true
 
 # Configuración de servidor (usando puerto dinámico para Render)
 server:
