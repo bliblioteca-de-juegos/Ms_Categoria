@@ -1,5 +1,5 @@
 CREATE TABLE categorias (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    descricao VARCHAR(100)
+                            id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+                            nombre VARCHAR(100) NOT NULL,
+                            descricao VARCHAR(100)
 );
