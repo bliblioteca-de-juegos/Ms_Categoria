@@ -18,11 +18,11 @@ spring:
 flyway:
   enabled: true
   locations: classpath:db/migration
-  # Esto es lo que Spring Boot usa internamente para validar
   check-location: false
   ignore-missing-migrations: true
-  # AÑADE ESTA LÍNEA PARA EVITAR EL ERROR DE "UNSUPPORTED DATABASE"
+  # Esta propiedad evita que Flyway bloquee el inicio por la versión de PG 18.4
   validate-on-migrate: false
+  ignore-unsupported-database: true
 
 server:
   port: ${PORT:8081}
