@@ -19,6 +19,12 @@ public class CategoriaController {
 
     private final CategoriaService categoriaService;
 
+    @GetMapping("/hola")
+    public String holaMundo() {
+        long total = categoriaService.ObternerTodas().size();
+        return "Hola Mundo. Actualmente hay " + total + " categorías registradas.";
+    }
+
     // GET http://localhost:8081/api/v2/categorias -> 200 OK
     @GetMapping
     @Operation(summary = "Listar todas las categorias")
