@@ -1,18 +1,16 @@
 package com.biblioteca.Ms_Categoria.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import com.biblioteca.Ms_Categoria.model.Categoria;
 import com.biblioteca.Ms_Categoria.repository.CategoriaRepository;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
 @Slf4j
 @Component
-@RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
-    private final CategoriaRepository categoriaRepository;
-
+    @Autowired
+    private CategoriaRepository categoriaRepository;
     @Override
     public void run(String... args){
         if (categoriaRepository.count() > 0){
@@ -24,5 +22,4 @@ public class DataInitializer implements CommandLineRunner {
         categoriaRepository.save(new Categoria(null, "indi","juego desarrollado por una empresa pequeña"));
         log.info(">>> Ms_categorias: {} categorías insertadas.", categoriaRepository.count());
     }
-
 }
