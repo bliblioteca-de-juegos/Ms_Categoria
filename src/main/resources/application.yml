@@ -1,16 +1,16 @@
 server:
-  port: ${PORT:${SERVER_PORT:8081}}
+  port: ${SERVER_PORT:8081}
 
 spring:
   application:
     name: ms-categoria
   datasource:
-    url: ${DB_URL:${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/categorias_Juegos_db}}
-    username: ${DB_USER:${SPRING_DATASOURCE_USERNAME:root}}
-    password: ${DB_PASSWORD:${SPRING_DATASOURCE_PASSWORD:}}
-    driver-class-name: ${DB_DRIVER_CLASS_NAME:${SPRING_DATASOURCE_DRIVER_CLASS_NAME:com.mysql.cj.jdbc.Driver}}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/categorias_Juegos_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.MySQLDialect}
+    database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: validate
     show-sql: true
@@ -18,17 +18,13 @@ spring:
       hibernate:
         format_sql: true
   flyway:
-    enabled: ${FLYWAY_ENABLED:true}
+    enabled: true
     baseline-on-migrate: true
     locations: classpath:db/migration
-    check-location: false
-    ignore-missing-migrations: true
     validate-on-migrate: false
-    ignore-unsupported-database: true
 
 eureka:
   client:
-    enabled: ${EUREKA_CLIENT_ENABLED:true}
     serviceUrl:
       defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka/}
   instance:
@@ -43,5 +39,4 @@ springdoc:
 
 ms:
   juegos:
-    url: ${JUEGOS_SERVICE_URL:${MS_JUEGOS_URL:http://localhost:8082}}
-
+    url: ${MS_JUEGOS_URL:http://localhost:8082}
